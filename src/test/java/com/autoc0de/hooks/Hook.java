@@ -23,21 +23,22 @@ public class Hook {
     public static String screenshotdir = System.getProperty("user.dir")+"/test-output/screenshots/";
     File filePath = new File(System.getProperty("user.dir"));
     File appDir = new File(filePath, "src/test/resources/apps");
-    File app = new File(appDir, "Autoc0de.apk");
+    File app = new File(appDir, "booking-com-32-9.apk");
 
     @Before
     public void setUp() throws MalformedURLException {
         //CAPABILITIES
         DesiredCapabilities caps = new DesiredCapabilities();
 
-        caps.setCapability("deviceName", "Pixel3");
         caps.setCapability("app", app.getAbsolutePath());
         caps.setCapability("platformName", "Android");
-        caps.setCapability("avd", "Pixel3");
+        caps.setCapability("avd", "Pixel_6");
         caps.setCapability("resetKeyboard", "true");
         caps.setCapability("unicodeKeyboard", "true");
         caps.setCapability("appActivity", "");
-        caps.setCapability("appPackage", "com.example.autoc0de_mobile");
+        caps.setCapability("automationName", "UiAutomator2");
+        caps.setCapability("udid", "emulator-5556");
+        caps.setCapability("appPackage", "com.booking");
         //URL APPIUM SERVER
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         //DRIVERS
