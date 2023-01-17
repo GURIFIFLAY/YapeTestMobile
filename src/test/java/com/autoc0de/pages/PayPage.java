@@ -19,9 +19,7 @@ public class PayPage extends MasterPage {
     private final String CONTACT_INPUT_ID = "bui_input_container_content";
     private final String PRIMARY_PURPOSE_CHECKBOX_ID = "business_purpose_leisure";
     private final String TOTAL_OVERVIEW_ID = "bp_price_summary_total_price_value";
-    private final String TOTAL_OVERVIEW_FULL_ID = "bp_price_summary_total_price_strikethrough_price_view";
-    private final String FINAL_PRICE_ID = "title";
-
+    private final String ALERT_CONTACT_ID = "bui_input_container_helper_label";
     private final String CREDIT_CARD_INPUT_ID = "new_credit_card_number_edit";
     private final String EXPIRATION_CARD_INPUT_ID = "new_credit_card_expiry_date_edit";
 
@@ -47,7 +45,16 @@ public class PayPage extends MasterPage {
         auto_selectCheckbox(MobileBy.id(PRIMARY_PURPOSE_CHECKBOX_ID));
         auto_setTapElement(MobileBy.id(MAIN_BUTTON_ID));
     }
+public void tapContact(){
+    auto_setTapElement(MobileBy.id(MAIN_BUTTON_ID));
+auto_isElementPresent(MobileBy.id(ALERT_CONTACT_ID));
 
+
+}
+public void validateAlert(String arg0){
+    Assert.assertEquals( auto_getElementText(MobileBy.id(ALERT_CONTACT_ID)), arg0);
+
+}
     public void validatePrice(String arg0) {
         Assert.assertEquals( auto_getElementText(MobileBy.id(TOTAL_OVERVIEW_ID)), arg0);
     }

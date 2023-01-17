@@ -75,4 +75,15 @@ public class Booking {
         payPage.completeForm(dataForm);
 
     }
+
+    @And("I dont enter my personal info")
+    public void iDontEnterMyPersonalInfo() {
+        payPage.tapContact();
+    }
+
+
+    @Then("I should see a alert with {string}")
+    public void iShouldSeeAAlertWith(String arg0) {
+        payPage.validateAlert(arg0);
+    }
 }
